@@ -11,4 +11,8 @@ Idea is to have a system that would smoothly, without bloat provide a system of 
 
 ### Backend - GoRoutines system for cellular automaton
 
+### Abstractions
+
+Spatial system - full 3D model with 3D representation.
+
 
