@@ -20,9 +20,11 @@ func main() {
   fmt.Println("Concurrent Spatial Simulation System - early alpha version.")
   defer fmt.Println("All went well, goodbye...")
 
+  // Initialization
   raylib.InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Concurrent Spatial Simulation System")
   defer raylib.CloseWindow()
 
+  // Configuration
   raylib.SetTargetFPS(60)
 
   // Loading different font
@@ -30,13 +32,16 @@ func main() {
 
   for !raylib.WindowShouldClose() {
     // Input handling
+    if raylib.IsKeyPressed(raylib.KeyEscape) {
+      raylib.CloseWindow()
+    }
 
     // Simulation
 
     // Frame drawing
     raylib.BeginDrawing()
-
     raylib.ClearBackground(raylib.RayWhite)
+
     drawTextDefault(DEFAULT_FONT, "Concurrent Spatial Simulation System", 10, 10)
 
     raylib.EndDrawing()
