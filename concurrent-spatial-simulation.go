@@ -2,6 +2,7 @@ package main
 
 import (
   "fmt"
+  "github.com/ragnarlodbrok1992/concurrent-spatial-simulation/src/grid"
   raylib "github.com/gen2brain/raylib-go/raylib"
 )
 
@@ -29,6 +30,9 @@ func main() {
 
   // Loading different font
   DEFAULT_FONT := raylib.LoadFont(FONT_NAME)
+
+  // Debug code
+  // grid.DrawGrid()
 
   for !raylib.WindowShouldClose() {
     // Input handling
