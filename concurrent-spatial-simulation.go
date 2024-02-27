@@ -2,7 +2,7 @@ package main
 
 import (
   "fmt"
-  "github.com/ragnarlodbrok1992/concurrent-spatial-simulation/src/grid"
+  grid "github.com/ragnarlodbrok1992/concurrent-spatial-simulation/src/grid"
   raylib "github.com/gen2brain/raylib-go/raylib"
 )
 
@@ -13,7 +13,7 @@ const DEFAULT_FONT_SIZE float32 = 20
 const DEFAULT_SPACING float32 = 2
 
 func drawTextDefault(font raylib.Font, text string, x float32, y float32) {
-  raylib.DrawTextEx(font, text, raylib.Vector2{x, y}, DEFAULT_FONT_SIZE, DEFAULT_SPACING, raylib.DarkGray)
+  raylib.DrawTextEx(font, text, raylib.Vector2{x, y}, DEFAULT_FONT_SIZE, DEFAULT_SPACING, raylib.Black)
 }
 
 func main() {
@@ -30,9 +30,12 @@ func main() {
 
   // Loading different font
   DEFAULT_FONT := raylib.LoadFont(FONT_NAME)
+  BACKGROUND_MAIN_COLOR := raylib.Color{252, 115, 3, 255}
 
   // Debug code
   // grid.DrawGrid()
+  debug_grid := grid.CreateGrid(10, 10)
+  fmt.Println(debug_grid)
 
   for !raylib.WindowShouldClose() {
     // Input handling
@@ -44,7 +47,7 @@ func main() {
 
     // Frame drawing
     raylib.BeginDrawing()
-    raylib.ClearBackground(raylib.RayWhite)
+    raylib.ClearBackground(BACKGROUND_MAIN_COLOR)
 
     drawTextDefault(DEFAULT_FONT, "Concurrent Spatial Simulation System", 10, 10)
 
